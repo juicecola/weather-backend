@@ -29,5 +29,5 @@ RUN composer install --optimize-autoloader --no-dev
 # Expose port 8000 for Laravel development server
 EXPOSE 8000
 
-# Start Laravel development server
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# Start Laravel development server, bind to dynamic port
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
